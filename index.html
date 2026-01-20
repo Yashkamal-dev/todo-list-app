@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do list app</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="app">
+        <!-- the header of the app -->
+        <header class="header">
+          <!-- the app name and logo - filters-->
+          <div class="head">
+            <div class="app-name-img">
+              <div class="app-logo">
+                <img
+                  src="/assets/check_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png"
+                  alt="app logo"
+                  class="app-image"
+                />
+              </div>
+              <h1 class="app-name">My To-Do List</h1>
+            </div>
+            <div class="filter-settings">
+              <div class="btn-list">
+                <button class="btn active">All</button>
+                <button class="btn">Pending</button>
+                <button class="btn">Completed</button>
+              </div>
+              <div class="setting">
+                <img
+                  src="assets/settings (1).png"
+                  alt="setting icon"
+                  class="setting-image"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- task getter -->
+          <div class="input-con">
+            <div class="input">
+              <input
+                type="text"
+                placeholder="Add a new task..."
+                value=""
+                class="task-input"
+              />
+              <button class="add-btn">Add Task</button>
+            </div>
+          </div>
+        </header>
+
+        <!-- the tasks container -->
+        <div class="tasks-con"></div>
+        <div class="summery">
+          <div class="status"></div>
+          <div class="btn-clear"></div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
