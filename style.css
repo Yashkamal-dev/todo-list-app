@@ -199,10 +199,86 @@ header {
 
 .tasks-con {
   /* background-color: blueviolet; */
+
+  background-color: rgba(0, 0, 0, 0.066);
+
   height: 55%;
   overflow: auto;
 }
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+.ex-task {
+  background-color: rgba(0, 0, 0, 0.036);
+  height: 20%;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.check-task-con {
+  /* background-color: cyan; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-grow: 7;
+  gap: 13px;
+}
+
+.edit-dlt-con {
+  /* background-color: azure; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* flex-grow: 1; */
+  gap: 15px;
+}
+
+.check {
+  height: 26px;
+  width: 26px;
+}
+
+.completed {
+  height: 26px;
+
+  border-radius: 100px;
+
+  background-color: rgba(78, 178, 89);
+}
+
+.pending {
+  height: 26px;
+  background-color: rgba(245, 200, 112);
+  border-radius: 5px;
+}
+
+.task-show {
+  /* background-color: bisque; */
+
+  flex-grow: 10;
+}
+
+.btn-img {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.pencil-img, .delete-img {
+  height: 26px;
+}
+
+.completed-edit {
+  height: 22px;
+  padding: 2px;
+
+  border-radius: 100px;
+
+  background-color: rgba(78, 178, 89);
 }
