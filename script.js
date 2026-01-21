@@ -30,71 +30,75 @@ addBtn.addEventListener("click", () => {
   taskInput.value = "";
 
   if (task != "") {
-    let taskob = {
-      key: key,
+    function show() {
+      let checkTask = document.createElement("div");
+      checkTask.className = "check-task-con";
 
-      task: task,
+      let checkInput = document.createElement("input");
+      checkInput.type = "checkbox";
+      checkInput.className = "check";
 
-      completed: false,
+      let statusImg = document.createElement("img");
+      statusImg.src = "assets/equal.png";
+      statusImg.classList.add("status-img", "pending");
 
-      edit: function () {},
+      let para = document.createElement("p");
+      para.className = "task-show";
+      para.textContent = task;
 
-      delete: function () {},
+      checkTask.append(checkInput, statusImg, para);
 
-      show: function () {
-        let checkTask = document.createElement("div");
-        checkTask.className = "check-task-con";
+      let edtDlt = document.createElement("div");
+      edtDlt.className = "edit-dlt-con";
 
-        let checkInput = document.createElement("input");
-        checkInput.type = "checkbox";
-        checkInput.className = "check";
+      let edt = document.createElement("img");
+      edt.src = "assets/pencil.png";
+      edt.className = "pencil-img";
 
-        let statusImg = document.createElement("img");
-        statusImg.src = "assets/equal.png";
-        statusImg.classList.add("status-img", "pending");
+      let dlt = document.createElement("img");
+      dlt.src = "assets/delete.png";
+      dlt.className = "delete-img";
 
-        let para = document.createElement("p");
-        para.className = "task-show";
-        para.textContent = this.task;
+      edtDlt.append(edt, dlt);
 
-        checkTask.append(checkInput, statusImg, para);
+      let dv = document.createElement("div");
+      dv.classList.add("ex-task");
+      // dv.innerHTML = taskDetails;
 
-        let edtDlt = document.createElement("div");
-        edtDlt.className = "edit-dlt-con";
+      dv.append(checkTask, edtDlt);
 
-        let edt = document.createElement("img");
-        edt.src = "assets/pencil.png";
-        edt.className = "pencil-img";
+      tasksCon.append(dv);
 
-        let dlt = document.createElement("img");
-        dlt.src = "assets/delete.png";
-        dlt.className = "delete-img";
+      dlt.addEventListener("click", () => {
+        dv.remove();
+      });
 
-        edtDlt.append(edt, dlt);
+      checkInput.addEventListener("change", (e) => {
+        console.log(e);
 
-        let dv = document.createElement("div");
-        dv.classList.add("ex-task");
-        // dv.innerHTML = taskDetails;
+        if (checkInput.checked) {
+          statusImg.src = "assets/check.png";
+          statusImg.classList.remove("pending");
+          statusImg.classList.add("completed");
 
-        dv.append(checkTask, edtDlt);
+          edt.src = "assets/black-check.png";
+          edt.className = "pencil-img";
+          edt.classList.add("completed-edit");
+        } else {
+          statusImg.src = "assets/equal.png";
+          statusImg.classList.add("status-img", "pending");
 
-        tasksCon.append(dv);
-      },
-    };
+          edt.src = "assets/pencil.png";
+          edt.className = "pencil-img";
+        }
+      });
+    }
 
-    taskob.show(); // displaying the task on task container after add button
+    show(); // displaying the task on task container after add button
 
-    localStorage.setItem(key, JSON.stringify(taskob));
+    localStorage.setItem(key, task);
 
     key++;
     localStorage.setItem("key", key);
-  }
-});
-
-tasksCon.addEventListener("click", (e) => {
-  console.log(e);
-  if (e.target.classList.contains("delete-img")) {
-    let task = e.target.closest(".ex-task");
-    task.remove();
   }
 });
