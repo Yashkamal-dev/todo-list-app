@@ -31,6 +31,8 @@ addBtn.addEventListener("click", () => {
 
   if (task != "") {
     function show() {
+      dvKey = key;
+
       let checkTask = document.createElement("div");
       checkTask.className = "check-task-con";
 
@@ -63,6 +65,7 @@ addBtn.addEventListener("click", () => {
 
       let dv = document.createElement("div");
       dv.classList.add("ex-task");
+      dv.id = dvKey
       // dv.innerHTML = taskDetails;
 
       dv.append(checkTask, edtDlt);
@@ -70,7 +73,11 @@ addBtn.addEventListener("click", () => {
       tasksCon.append(dv);
 
       dlt.addEventListener("click", () => {
+        // id of dv to remove the task from the localstorage
+        let removeId = dv.getAttribute("id");
+        
         dv.remove();
+        localStorage.removeItem(removeId);
       });
 
       checkInput.addEventListener("change", (e) => {
