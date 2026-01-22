@@ -63,6 +63,25 @@ function show(funkey, task) {
   dv.id = dvKey;
   // dv.innerHTML = taskDetails;
 
+  let statusKey = localStorage.getItem(`${dvKey} status`);
+
+  if (statusKey == null) {
+    localStorage.setItem(`${dv.id} status`, "pending");
+  }
+
+  let state = localStorage.getItem(`${dv.id} status`);
+  if (state == "completed") {
+    statusImg.src = "assets/check.png";
+    statusImg.classList.remove("pending");
+    statusImg.classList.add("completed");
+
+    edt.src = "assets/black-check.png";
+    edt.className = "pencil-img";
+    edt.classList.add("completed-edit");
+
+    checkInput.checked = true;
+  }
+
   dv.append(checkTask, edtDlt);
 
   tasksCon.append(dv);
@@ -73,6 +92,8 @@ function show(funkey, task) {
     console.log(removeId);
 
     dv.remove();
+    localStorage.removeItem(`${removeId} status`);
+
     localStorage.removeItem(removeId);
   });
 
@@ -87,6 +108,8 @@ function show(funkey, task) {
       edt.src = "assets/black-check.png";
       edt.className = "pencil-img";
       edt.classList.add("completed-edit");
+
+      localStorage.setItem(`${dv.id} status`, "completed");
     } else {
       statusImg.src = "assets/equal.png";
       statusImg.classList.remove("completed");
@@ -94,6 +117,8 @@ function show(funkey, task) {
 
       edt.src = "assets/pencil.png";
       edt.className = "pencil-img";
+
+      localStorage.setItem(`${dv.id} status`, "pending");
     }
   });
 }
