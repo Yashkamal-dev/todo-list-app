@@ -1,6 +1,12 @@
 let taskInput = document.querySelector(".task-input");
 let addBtn = document.querySelector(".add-btn");
+
 let tasksCon = document.querySelector(".tasks-con");
+
+let totalCon = document.querySelector("#total");
+let pendingCon = document.querySelector("#pending");
+let total;
+let pending;
 
 let key;
 
@@ -24,6 +30,27 @@ filterBtns.forEach((btn) => {
     btn.classList.add("active");
   });
 });
+
+// the function for displaying summery
+let summary = () => {
+  let length = localStorage.length;
+
+  total = 0;
+  pending = 0;
+
+  for (let i = 1; i <= key; i++) {
+    let state = localStorage.getItem(`${i} status`);
+
+    if (state == "completed") {
+      total++;
+    } else if (state == "pending") {
+      pending++;
+    }
+  }
+
+  totalCon.textContent = total + pending;
+  pendingCon.textContent = pending;
+};
 
 function show(funkey, task) {
   dvKey = funkey;
@@ -95,6 +122,7 @@ function show(funkey, task) {
     localStorage.removeItem(`${removeId} status`);
 
     localStorage.removeItem(removeId);
+    summary();
   });
 
   checkInput.addEventListener("change", (e) => {
@@ -110,6 +138,7 @@ function show(funkey, task) {
       edt.classList.add("completed-edit");
 
       localStorage.setItem(`${dv.id} status`, "completed");
+      summary();
     } else {
       statusImg.src = "assets/equal.png";
       statusImg.classList.remove("completed");
@@ -119,8 +148,10 @@ function show(funkey, task) {
       edt.className = "pencil-img";
 
       localStorage.setItem(`${dv.id} status`, "pending");
+      summary();
     }
   });
+  summary();
 }
 
 // to fetch the data from localstorage
