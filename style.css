@@ -270,7 +270,8 @@ header {
   cursor: pointer;
 }
 
-.pencil-img, .delete-img {
+.pencil-img,
+.delete-img {
   height: 26px;
 }
 
@@ -281,4 +282,49 @@ header {
   border-radius: 100px;
 
   background-color: rgba(78, 178, 89);
+}
+
+.summery {
+  height: 15%;
+
+  margin: 0px 35px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status {
+  font-size: 1.1em;
+  margin-left: 7px;
+  display: flex;
+
+  gap: 10px;
+}
+
+.tag {
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.btn-clear {
+  height: 40%;
+  width: 25%;
+}
+
+.clear {
+  height: 100%;
+  width: 100%;
+  font-size: 1em;
+
+  cursor: pointer;
+  font-weight: 540;
+
+  padding: 5px 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.155);
+  border-radius: 15px;
+
+  color: white;
+  background: linear-gradient(165deg, rgb(89, 71, 207), rgb(49, 41, 122));
+  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.361);
 }
