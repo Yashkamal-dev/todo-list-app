@@ -5,6 +5,9 @@ let tasksCon = document.querySelector(".tasks-con");
 
 let totalCon = document.querySelector("#total");
 let pendingCon = document.querySelector("#pending");
+
+let clearBtn = document.querySelector(".clear");
+
 let total;
 let pending;
 
@@ -98,6 +101,8 @@ function show(funkey, task) {
 
   let state = localStorage.getItem(`${dv.id} status`);
   if (state == "completed") {
+    dv.classList.add("completed-dv");
+
     statusImg.src = "assets/check.png";
     statusImg.classList.remove("pending");
     statusImg.classList.add("completed");
@@ -133,6 +138,8 @@ function show(funkey, task) {
   // checkbox event function
   let checkEvent = (e) => {
     if (checkInput.checked) {
+      dv.classList.add("completed-dv");
+
       statusImg.src = "assets/check.png";
       statusImg.classList.remove("pending");
       statusImg.classList.add("completed");
@@ -145,6 +152,8 @@ function show(funkey, task) {
       localStorage.setItem(`${dv.id} status`, "completed");
       summary();
     } else {
+      dv.classList.remove("completed-dv");
+
       statusImg.src = "assets/equal.png";
       statusImg.classList.remove("completed");
       statusImg.classList.add("status-img", "pending");
@@ -276,4 +285,23 @@ addBtn.addEventListener("click", () => {
     key++;
     localStorage.setItem("key", key);
   }
+});
+
+clearBtn.addEventListener("click", () => {
+  for (let i = 1; i <= key; i++) {
+    let checkstatus = localStorage.getItem(`${i} status`);
+    if (checkstatus == "completed") {
+      let value = localStorage.getItem(i);
+
+      localStorage.removeItem(i);
+      localStorage.removeItem(`${i} status`);
+    }
+  }
+
+  let completedDiv = document.querySelectorAll(".completed-dv");
+  completedDiv.forEach((div) => {
+    div.remove();
+  });
+
+  summary();
 });
