@@ -1,3 +1,7 @@
+let allFilterBtn = document.querySelector("#all-filter");
+let pendingFilterBtn = document.querySelector("#pending-filter");
+let completedFilterBtn = document.querySelector("#completed-filter");
+
 let taskInput = document.querySelector(".task-input");
 let addBtn = document.querySelector(".add-btn");
 
@@ -272,6 +276,47 @@ for (let i = 1; i < key; i++) {
     show(key, value);
   }
 }
+
+// event for "all" filter button
+allFilterBtn.addEventListener("click", () => {
+  tasksCon.innerHTML = "";
+
+  for (let i = 1; i <= key; i++) {
+    let value = localStorage.getItem(i);
+
+    if (value != null) {
+      show(i, value);
+    }
+  }
+});
+
+// event for "pending" filter button
+pendingFilterBtn.addEventListener("click", () => {
+  tasksCon.innerHTML = "";
+
+  for (let i = 1; i <= key; i++) {
+    let value = localStorage.getItem(i);
+    let status = localStorage.getItem(`${i} status`);
+
+    if (status == "pending") {
+      show(i, value);
+    }
+  }
+});
+
+// event for "completed" filter button
+completedFilterBtn.addEventListener("click", () => {
+  tasksCon.innerHTML = "";
+
+  for (let i = 1; i <= key; i++) {
+    let value = localStorage.getItem(i);
+    let status = localStorage.getItem(`${i} status`);
+
+    if (status == "completed") {
+      show(i, value);
+    }
+  }
+});
 
 addBtn.addEventListener("click", () => {
   let task = taskInput.value;
