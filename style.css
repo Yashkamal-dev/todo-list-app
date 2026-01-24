@@ -328,3 +328,95 @@ header {
   background: linear-gradient(165deg, rgb(89, 71, 207), rgb(49, 41, 122));
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.361);
 }
+
+/* styles for edit state and container */
+.ex-task {
+  min-height: 20%;
+  height: max-content;
+}
+
+.pending-edt {
+  display: none;
+}
+
+.task-show-edt {
+  display: none;
+}
+
+.editBox {
+  flex-grow: 10;
+  align-self: flex-start;
+
+  background-color: rgba(0, 0, 0, 0.333);
+
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 20px 15px;
+
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 1em;
+}
+
+.editinput {
+  font-size: 1.3em;
+  background: rgba(255, 255, 255, 0.927);
+
+  border: 1px solid white;
+  border-radius: 7px;
+
+  height: 42px;
+  padding-left: 10px;
+}
+
+.editinput:focus {
+  outline: none;
+}
+
+.cancel-save-con {
+  display: flex;
+  gap: 1em;
+}
+
+.cancel,
+.save {
+  width: 23%;
+
+  color: white;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+
+  padding: 10px 0px;
+
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.cancel {
+  background: linear-gradient(rgba(92, 66, 178), rgba(82, 57, 164));
+}
+
+.save {
+  background: linear-gradient(rgba(49, 151, 205), rgba(42, 131, 196));
+}
+
+.tasks-con.editing .ex-task {
+  opacity: 0.5;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.tasks-con.editing .ex-task.editing-active {
+  opacity: 1;
+  filter: none;
+  pointer-events: auto;
+}
+
+.delete-img-edit {
+  opacity: 0.5;
+  filter: blur(2px);
+}

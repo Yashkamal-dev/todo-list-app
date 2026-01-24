@@ -104,6 +104,7 @@ function show(funkey, task) {
 
     edt.src = "assets/black-check.png";
     edt.className = "pencil-img";
+    edt.classList.remove("pencil-img");
     edt.classList.add("completed-edit");
 
     checkInput.checked = true;
@@ -113,7 +114,8 @@ function show(funkey, task) {
 
   tasksCon.append(dv);
 
-  dlt.addEventListener("click", () => {
+  // delete event function
+  let deleteEvent = () => {
     // id of dv to remove the task from the localstorage
     let removeId = dv.getAttribute("id");
     console.log(removeId);
@@ -123,11 +125,13 @@ function show(funkey, task) {
 
     localStorage.removeItem(removeId);
     summary();
-  });
+  };
 
-  checkInput.addEventListener("change", (e) => {
-    console.log(e);
+  // asigning event to delete img click
+  dlt.addEventListener("click", deleteEvent);
 
+  // checkbox event function
+  let checkEvent = (e) => {
     if (checkInput.checked) {
       statusImg.src = "assets/check.png";
       statusImg.classList.remove("pending");
@@ -135,6 +139,7 @@ function show(funkey, task) {
 
       edt.src = "assets/black-check.png";
       edt.className = "pencil-img";
+      edt.classList.remove("pencil-img");
       edt.classList.add("completed-edit");
 
       localStorage.setItem(`${dv.id} status`, "completed");
@@ -150,7 +155,100 @@ function show(funkey, task) {
       localStorage.setItem(`${dv.id} status`, "pending");
       summary();
     }
-  });
+  };
+
+  // asigning event to checkbox click
+  checkInput.addEventListener("change", checkEvent);
+
+  // edit event function
+  let editEvent = () => {
+    if (edt.classList.contains("pencil-img")) {
+      edt.removeEventListener("click", editEvent);
+      dlt.removeEventListener("click", deleteEvent);
+
+      tasksCon.classList.add("editing");
+      dv.classList.add("editing-active");
+      dlt.classList.add("delete-img-edit");
+
+      statusImg.classList.add("pending-edt");
+      para.classList.add("task-show-edt");
+
+      checkInput.disabled = true;
+
+      let editBox = document.createElement("div");
+      editBox.classList.add("editBox");
+
+      let editInput = document.createElement("input");
+      editInput.classList.add("editinput");
+      editInput.value = localStorage.getItem(dv.id);
+
+      let cancelSaveCon = document.createElement("div");
+      cancelSaveCon.classList.add("cancel-save-con");
+
+      let cancelBtn = document.createElement("button");
+      cancelBtn.classList.add("cancel");
+      cancelBtn.textContent = "Cancel";
+
+      let saveBtn = document.createElement("button");
+      saveBtn.classList.add("save");
+      saveBtn.textContent = "Save";
+
+      cancelSaveCon.append(cancelBtn, saveBtn);
+
+      editBox.append(editInput, cancelSaveCon);
+
+      checkTask.append(editBox);
+
+      cancelBtn.addEventListener("click", () => {
+        edt.addEventListener("click", editEvent);
+        dlt.addEventListener("click", deleteEvent);
+
+        tasksCon.classList.remove("editing");
+        dv.classList.remove("editing-active");
+        dlt.classList.remove("delete-img-edit");
+
+        statusImg.classList.remove("pending-edt");
+        para.classList.remove("task-show-edt");
+
+        checkInput.disabled = false;
+
+        editBox.remove();
+        editInput.remove();
+        cancelSaveCon.remove();
+        cancelBtn.remove();
+        saveBtn.remove();
+      });
+
+      saveBtn.addEventListener("click", () => {
+        edt.addEventListener("click", editEvent);
+        dlt.addEventListener("click", deleteEvent);
+
+        let newValue = editInput.value;
+
+        localStorage.setItem(dv.id, newValue);
+        para.textContent = localStorage.getItem(dv.id);
+
+        tasksCon.classList.remove("editing");
+        dv.classList.remove("editing-active");
+        dlt.classList.remove("delete-img-edit");
+
+        statusImg.classList.remove("pending-edt");
+        para.classList.remove("task-show-edt");
+
+        checkInput.disabled = false;
+
+        editBox.remove();
+        editInput.remove();
+        cancelSaveCon.remove();
+        cancelBtn.remove();
+        saveBtn.remove();
+      });
+    }
+  };
+
+  // asigning event to edit img click
+  edt.addEventListener("click", editEvent);
+
   summary();
 }
 
