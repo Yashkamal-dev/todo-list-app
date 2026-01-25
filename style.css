@@ -208,7 +208,18 @@ header {
 }
 
 ::-webkit-scrollbar {
-  display: none;
+  width: 5px;
+}
+
+/* scrollbar track */
+::-webkit-scrollbar-track {
+  background: #0000001b;
+}
+
+/* scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: #0000002f;
+  border-radius: 10px;
 }
 
 .ex-task {
@@ -218,6 +229,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  animation: 0.25s ease load;
 }
 
 .check-task-con {
@@ -450,6 +463,8 @@ header {
   border: 1px solid rgba(255, 255, 255, 0.169);
   border-radius: 1em;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.674);
+
+  animation: 0.25s ease load;
 }
 
 .labelcon {
@@ -538,6 +553,8 @@ header {
   border: 1px solid rgba(255, 255, 255, 0.169);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.674);
   border-radius: 25px;
+
+  animation: 0.25s ease load;
 }
 
 .headercon {
@@ -605,4 +622,16 @@ header {
 .finalclear {
   color: white;
   background: linear-gradient(rgba(201, 71, 112), rgba(154, 54, 96));
+}
+
+@keyframes load {
+  from {
+    scale: 0;
+    opacity: 0;
+  }
+
+  to {
+    scale: 1;
+    opacity: 1;
+  }
 }
