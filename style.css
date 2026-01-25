@@ -200,6 +200,14 @@ header {
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.372);
 }
 
+.add-btn:active {
+  scale: 0.96;
+
+  background: linear-gradient(rgb(56, 183, 195), rgb(43, 151, 184));
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
+}
+
 .tasks-con {
   background-color: rgba(0, 0, 0, 0.066);
 
@@ -341,6 +349,14 @@ header {
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.361);
 }
 
+.clear:active {
+  scale: 0.96;
+
+  background: linear-gradient(165deg, rgb(81, 66, 192), rgb(45, 38, 117));
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
 /* styles for edit state and container */
 .in-edit {
   opacity: 0.7;
@@ -419,8 +435,16 @@ header {
   background: linear-gradient(rgba(92, 66, 178), rgba(82, 57, 164));
 }
 
+.cancel:active {
+  scale: 0.97;
+}
+
 .save {
   background: linear-gradient(rgba(49, 151, 205), rgba(42, 131, 196));
+}
+
+.save:active {
+  scale: 0.97;
 }
 
 .tasks-con.editing .ex-task {
@@ -503,6 +527,14 @@ header {
   border: none;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.setting-btn:active {
+  scale: 0.97;
+
+  background: linear-gradient(rgb(145, 54, 80), rgb(78, 27, 44));
+
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
 }
 
 .deleteimg {
@@ -620,9 +652,17 @@ header {
   background: linear-gradient(rgba(235, 233, 248), rgba(205, 205, 246));
 }
 
+.finalcancel:active {
+  scale: 0.97;
+}
+
 .finalclear {
   color: white;
   background: linear-gradient(rgba(201, 71, 112), rgba(154, 54, 96));
+}
+
+.finalclear:active {
+  scale: 0.97;
 }
 
 @keyframes load {
