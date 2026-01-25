@@ -64,7 +64,7 @@ The app is designed to help users manage daily tasks efficiently with a focus on
 
 ### Clear Completed Tasks Confirmation
 
-<img src="readmePic/clear-completed.png" alt="" width="390">
+<img src="screenshots/clear-completed.png" alt="" width="390">
 
 ---
 
