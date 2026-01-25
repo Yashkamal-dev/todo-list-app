@@ -65,6 +65,7 @@ let finalDeleteFun = () => {
   deleteQuestionBtn.className = "delete-question-btn";
 
   let finalQuestion = document.createElement("p");
+  finalQuestion.classList.add("finalquestion")
   finalQuestion.textContent = "Are you sure you want to clear all tasks?";
 
   let finalBtnCon = document.createElement("div");
