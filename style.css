@@ -7,7 +7,6 @@ body {
   height: 100vh;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url("https://wallpaperaccess.com/full/1092578.jpg");
   background-image: url("assets/background-image.jpg");
 
   background-size: cover;
@@ -15,6 +14,7 @@ body {
 
 .app-container {
   height: 100%;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,8 +23,8 @@ body {
 .app {
   height: 75vh;
   width: 80vw;
+
   background-color: rgba(0, 0, 0, 0.275);
-  box-shadow: 5px 10px 25px black;
 
   box-shadow:
     0 0 25px rgba(255, 255, 255, 0.104),
@@ -32,6 +32,7 @@ body {
 
   border: 1px solid rgba(255, 255, 255, 0.119);
   border-radius: 20px;
+
   position: relative;
 }
 
@@ -39,32 +40,32 @@ header {
   height: 30%;
   width: 100%;
 
-  /* background-color: black; */
-  /* position: absolute; */
-
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  top: 0px;
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.087);
 }
 
 .head {
-  /* background-color: aqua; */
   height: 50%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   margin: auto 30px;
   position: relative;
 }
 
 .head::after {
   content: "";
-  position: absolute;
-  bottom: 0;
+
   width: 100%;
   height: 1px;
+
+  position: absolute;
+  bottom: 0;
+
   background-color: rgba(255, 255, 255, 0.128);
 }
 
@@ -141,7 +142,6 @@ header {
 }
 
 .input-con {
-  /* background-color: beige; */
   height: 50%;
   margin: auto 30px;
 
@@ -163,12 +163,13 @@ header {
 .task-input {
   height: 55%;
   width: 75%;
+  font-size: 1.2rem;
+
   padding-left: 30px;
 
   border: 1px solid rgba(255, 255, 255, 0.139);
   border-radius: 17px;
 
-  font-size: 1.2rem;
   color: white;
   background-color: rgba(255, 255, 255, 0.067);
 
@@ -187,8 +188,8 @@ header {
   height: 55%;
   width: 25%;
   padding: 0 20px;
-
   font-size: 1.5em;
+
   color: white;
   background: linear-gradient(rgba(64, 190, 200), rgba(48, 153, 185));
 
@@ -200,8 +201,6 @@ header {
 }
 
 .tasks-con {
-  /* background-color: blueviolet; */
-
   background-color: rgba(0, 0, 0, 0.066);
 
   height: 55%;
@@ -224,9 +223,11 @@ header {
 }
 
 .ex-task {
-  background-color: rgba(0, 0, 0, 0.036);
   height: 20%;
   padding: 0 30px;
+
+  background-color: rgba(0, 0, 0, 0.036);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -235,7 +236,6 @@ header {
 }
 
 .check-task-con {
-  /* background-color: cyan; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -245,12 +245,10 @@ header {
 }
 
 .edit-dlt-con {
-  /* background-color: azure; */
   display: flex;
   justify-content: center;
   align-items: center;
 
-  /* flex-grow: 1; */
   gap: 15px;
 }
 
@@ -274,8 +272,6 @@ header {
 }
 
 .task-show {
-  /* background-color: bisque; */
-
   flex-grow: 10;
 }
 
@@ -312,8 +308,8 @@ header {
 .status {
   font-size: 1.1em;
   margin-left: 7px;
-  display: flex;
 
+  display: flex;
   gap: 10px;
 }
 
@@ -336,11 +332,12 @@ header {
 
   padding: 5px 10px;
 
+  color: white;
+  background: linear-gradient(165deg, rgb(89, 71, 207), rgb(49, 41, 122));
+
   border: 1px solid rgba(255, 255, 255, 0.155);
   border-radius: 15px;
 
-  color: white;
-  background: linear-gradient(165deg, rgb(89, 71, 207), rgb(49, 41, 122));
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.361);
 }
 
@@ -366,7 +363,6 @@ header {
 
 .editBox {
   flex-grow: 10;
-  align-self: flex-start;
 
   background-color: rgba(0, 0, 0, 0.333);
 
@@ -378,19 +374,20 @@ header {
 
   display: flex;
   flex-direction: column;
-
+  align-self: flex-start;
   gap: 1em;
+
   animation: 0.25s ease load;
 }
 
 .editinput {
+  height: 42px;
   font-size: 1.3em;
   background: rgba(255, 255, 255, 0.927);
 
   border: 1px solid white;
   border-radius: 7px;
 
-  height: 42px;
   padding-left: 10px;
 }
 
@@ -444,7 +441,6 @@ header {
 }
 
 /* style for the app option popup */
-
 .appOnSetting {
   opacity: 0.7;
   filter: blur(2px);
@@ -493,9 +489,9 @@ header {
 }
 
 .setting-btn {
+  font-size: 1.3em;
   padding: 7px 15px;
   margin: auto 0;
-  font-size: 1.3em;
 
   display: flex;
   justify-content: center;
@@ -519,14 +515,14 @@ header {
 }
 
 .close {
+  height: 27px;
+  width: 27px;
+
   position: absolute;
   right: 10px;
   top: 10px;
 
   background-color: rgba(255, 255, 255, 0.154);
-
-  height: 27px;
-  width: 27px;
 
   border: none;
   border-radius: 100px;
@@ -539,7 +535,6 @@ header {
 }
 
 /* style for the delete / clear pop-up */
-
 .finaldeletecon {
   height: 25%;
   width: 50%;
@@ -575,8 +570,9 @@ header {
 
 .finaldelete {
   height: 45px;
-  background-color: rgba(234, 20, 20, 0.292);
   padding: 10px;
+
+  background-color: rgba(234, 20, 20, 0.292);
   border-radius: 12px;
 }
 
@@ -610,10 +606,12 @@ header {
 
 .finalcancel,
 .finalclear {
-  height: 50px;
-  width: 30%;
   font-size: 1.3em;
   padding: 10px 20px;
+
+  height: 50px;
+  width: 30%;
+
   border-radius: 7px;
   border: none;
 }
@@ -639,6 +637,7 @@ header {
   }
 }
 
+/* media queries for responsiveness */
 @media (max-width: 545px) {
   .head {
     margin: auto 20px;
