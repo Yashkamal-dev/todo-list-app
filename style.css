@@ -331,6 +331,12 @@ header {
 }
 
 /* styles for edit state and container */
+.in-edit {
+  opacity: 0.7;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
 .ex-task {
   min-height: 20%;
   height: max-content;

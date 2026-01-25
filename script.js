@@ -340,6 +340,14 @@ function show(funkey, task) {
       edt.removeEventListener("click", editEvent);
       dlt.removeEventListener("click", deleteEvent);
 
+      allFilterBtn.classList.add("in-edit");
+      pendingFilterBtn.classList.add("in-edit");
+      completedFilterBtn.classList.add("in-edit");
+      settingIcon.classList.add("in-edit");
+      taskInput.classList.add("in-edit");
+      addBtn.classList.add("in-edit");
+      clearBtn.classList.add("in-edit");
+
       tasksCon.classList.add("editing");
       dv.classList.add("editing-active");
       dlt.classList.add("delete-img-edit");
@@ -377,6 +385,14 @@ function show(funkey, task) {
         edt.addEventListener("click", editEvent);
         dlt.addEventListener("click", deleteEvent);
 
+        allFilterBtn.classList.remove("in-edit");
+        pendingFilterBtn.classList.remove("in-edit");
+        completedFilterBtn.classList.remove("in-edit");
+        settingIcon.classList.remove("in-edit");
+        taskInput.classList.remove("in-edit");
+        addBtn.classList.remove("in-edit");
+        clearBtn.classList.remove("in-edit");
+
         tasksCon.classList.remove("editing");
         dv.classList.remove("editing-active");
         dlt.classList.remove("delete-img-edit");
@@ -396,6 +412,14 @@ function show(funkey, task) {
       saveBtn.addEventListener("click", () => {
         edt.addEventListener("click", editEvent);
         dlt.addEventListener("click", deleteEvent);
+
+        allFilterBtn.classList.remove("in-edit");
+        pendingFilterBtn.classList.remove("in-edit");
+        completedFilterBtn.classList.remove("in-edit");
+        settingIcon.classList.remove("in-edit");
+        taskInput.classList.remove("in-edit");
+        addBtn.classList.remove("in-edit");
+        clearBtn.classList.remove("in-edit");
 
         let newValue = editInput.value;
 
