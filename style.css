@@ -70,6 +70,7 @@ header {
 
 .app-name-img {
   display: flex;
+  align-items: center;
   gap: 15px;
 }
 
@@ -185,7 +186,7 @@ header {
 .add-btn {
   height: 55%;
   width: 25%;
-  padding: 0 30px;
+  padding: 0 20px;
 
   font-size: 1.5em;
   color: white;
@@ -333,7 +334,7 @@ header {
   cursor: pointer;
   font-weight: 540;
 
-  padding: 5px 20px;
+  padding: 5px 10px;
 
   border: 1px solid rgba(255, 255, 255, 0.155);
   border-radius: 15px;
@@ -379,6 +380,7 @@ header {
   flex-direction: column;
 
   gap: 1em;
+  animation: 0.25s ease load;
 }
 
 .editinput {
@@ -451,6 +453,7 @@ header {
 
 .setting-pop-up {
   width: 35%;
+  min-width: 200px;
   height: 15%;
 
   position: absolute;
@@ -547,8 +550,9 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
 
-  background-color: rgba(0, 0, 0, 0.433);
+  background-color: rgba(0, 0, 0, 0.3);
 
   border: 1px solid rgba(255, 255, 255, 0.169);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.674);
@@ -587,7 +591,6 @@ header {
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   justify-content: center;
   gap: 60px;
 }
@@ -633,5 +636,536 @@ header {
   to {
     scale: 1;
     opacity: 1;
+  }
+}
+
+@media (max-width: 545px) {
+  .head {
+    margin: auto 20px;
+  }
+
+  .app-name-img {
+    gap: 10px;
+  }
+
+  .app-logo {
+    height: 30px;
+  }
+
+  .app-image {
+    height: 30px;
+  }
+
+  .app-name {
+    font-size: 1.5rem;
+  }
+
+  .filter-settings {
+    gap: 5px;
+  }
+
+  .btn-list {
+    flex-direction: column;
+
+    border-radius: 10px;
+    gap: 2px;
+    padding: 6px;
+  }
+
+  .btn {
+    font-size: 11px;
+    padding: 5px 7px;
+  }
+
+  .setting-image {
+    height: 27px;
+  }
+
+  .input-con {
+    margin: auto 20px;
+  }
+
+  .task-input {
+    padding-left: 15px;
+
+    font-size: 1rem;
+  }
+
+  .add-btn {
+    padding: 0 15px;
+
+    font-size: 1em;
+  }
+
+  .ex-task {
+    padding: 0px 20px;
+  }
+
+  .check-task-con {
+    gap: 10px;
+  }
+
+  .edit-dlt-con {
+    gap: 10px;
+  }
+
+  .check {
+    height: 20px;
+    width: 20px;
+  }
+
+  .pending {
+    height: 20px;
+  }
+
+  .completed {
+    height: 20px;
+  }
+
+  .task-show {
+    font-size: 15px;
+  }
+
+  .pencil-img,
+  .delete-img {
+    height: 20px;
+  }
+
+  .completed-edit {
+    height: 16px;
+    padding: 2px;
+  }
+
+  .editBox {
+    padding: 15px 10px;
+  }
+
+  .cancel-save-con {
+    gap: 12px;
+  }
+
+  .editinput {
+    font-size: 14px;
+    height: 30px;
+  }
+
+  .cancel,
+  .save {
+    width: 23%;
+    font-size: 14px;
+    letter-spacing: 1;
+
+    padding: 7px 0px;
+  }
+
+  .summery {
+    margin: auto 20px;
+  }
+
+  .status {
+    font-size: 12px;
+    margin-left: 7px;
+
+    gap: 10px;
+  }
+
+  .clear {
+    font-size: 12px;
+    padding: 3px 5px;
+  }
+
+  .settinglabel {
+    font-size: 1.1em;
+  }
+
+  .setting-btn {
+    padding: 3px 7px;
+    font-size: 1em;
+  }
+
+  .close {
+    height: 20px;
+    width: 20px;
+  }
+
+  .close img {
+    height: 20px;
+  }
+
+  .delete-question-btn {
+    justify-content: space-around;
+  }
+
+  .headercon {
+    gap: 10px;
+  }
+
+  .finaldelete {
+    height: 25px;
+  }
+
+  .finalmsg {
+    font-size: 1.1em;
+    word-spacing: 1px;
+  }
+
+  .finalquestion {
+    font-size: 14px;
+  }
+
+  .finalcancel,
+  .finalclear {
+    height: 30px;
+    width: max-content;
+    font-size: 12px;
+    padding: 0px 15px;
+  }
+}
+
+@media (min-width: 545px) and (max-width: 665px) {
+  .app-logo {
+    height: 30px;
+  }
+
+  .app-image {
+    height: 30px;
+  }
+
+  .app-name {
+    font-size: 2rem;
+  }
+
+  .btn-list {
+    flex-direction: column;
+
+    border-radius: 10px;
+    gap: 2px;
+    padding: 6px;
+  }
+
+  .btn {
+    font-size: 11px;
+    padding: 5px 7px;
+  }
+
+  .setting-image {
+    height: 26px;
+  }
+
+  .task-input {
+    padding-left: 20px;
+
+    font-size: 1.1rem;
+  }
+
+  .add-btn {
+    padding: 0 20px;
+
+    font-size: 1em;
+  }
+
+  .check {
+    height: 20px;
+    width: 20px;
+  }
+
+  .pending {
+    height: 20px;
+  }
+
+  .completed {
+    height: 20px;
+  }
+
+  .task-show {
+    font-size: 1em;
+  }
+
+  .pencil-img,
+  .delete-img {
+    height: 20px;
+  }
+
+  .completed-edit {
+    height: 18px;
+    padding: 2px;
+  }
+
+  .editBox {
+    padding: 15px 10px;
+  }
+
+  .editinput {
+    font-size: 1.1em;
+    height: 30px;
+  }
+
+  .cancel,
+  .save {
+    width: 23%;
+    font-size: 1.1rem;
+    letter-spacing: 1;
+
+    padding: 5px 0px;
+  }
+
+  .status {
+    font-size: 14px;
+    margin-left: 7px;
+
+    gap: 10px;
+  }
+
+  .clear {
+    font-size: 12px;
+    padding: 3px 5px;
+  }
+
+  .settinglabel {
+    font-size: 1.1em;
+  }
+
+  .setting-btn {
+    padding: 3px 7px;
+    font-size: 1em;
+  }
+
+  .close {
+    height: 16px;
+    width: 16px;
+  }
+
+  .close img {
+    height: 16px;
+  }
+
+  .headercon {
+    gap: 10px;
+  }
+
+  .delete-question-btn {
+    justify-content: space-around;
+  }
+
+  .finaldelete {
+    height: 33px;
+  }
+
+  .finalmsg {
+    font-size: 1.5em;
+    word-spacing: 1px;
+  }
+
+  .finalquestion {
+    font-size: 1rem;
+  }
+
+  .finalcancel,
+  .finalclear {
+    height: 30px;
+    font-size: 1rem;
+    padding: 0px 10px;
+  }
+}
+
+@media (min-width: 666px) and (max-width: 769px) {
+  .app-logo {
+    height: 30px;
+  }
+
+  .app-image {
+    height: 30px;
+  }
+
+  .app-name {
+    font-size: 2rem;
+  }
+
+  .btn-list {
+    gap: 2px;
+    padding: 6px;
+  }
+
+  .btn {
+    font-size: 11px;
+    padding: 7px 7px;
+  }
+
+  .setting-image {
+    height: 26px;
+  }
+
+  .task-input {
+    padding-left: 20px;
+
+    font-size: 1.1rem;
+  }
+
+  .add-btn {
+    padding: 0 20px;
+
+    font-size: 1.1em;
+  }
+
+  .check {
+    height: 20px;
+    width: 20px;
+  }
+
+  .pending {
+    height: 20px;
+  }
+
+  .completed {
+    height: 20px;
+  }
+
+  .task-show {
+    font-size: 1em;
+  }
+
+  .pencil-img,
+  .delete-img {
+    height: 20px;
+  }
+
+  .completed-edit {
+    height: 18px;
+    padding: 2px;
+  }
+
+  .editBox {
+    padding: 15px 10px;
+  }
+
+  .editinput {
+    font-size: 1.1em;
+    height: 30px;
+  }
+
+  .cancel,
+  .save {
+    width: 23%;
+    font-size: 1.1rem;
+    letter-spacing: 1;
+
+    padding: 5px 0px;
+  }
+
+  .status {
+    font-size: 14px;
+    margin-left: 7px;
+
+    gap: 10px;
+  }
+
+  .clear {
+    font-size: 14px;
+    padding: 3px 5px;
+  }
+
+  .settinglabel {
+    font-size: 1.1em;
+  }
+
+  .setting-btn {
+    padding: 3px 7px;
+    font-size: 1em;
+  }
+
+  .close {
+    height: 16px;
+    width: 16px;
+  }
+
+  .close img {
+    height: 16px;
+  }
+
+  .finaldelete {
+    height: 37px;
+  }
+
+  .finalmsg {
+    font-size: 1.7em;
+  }
+
+  .finalquestion {
+    font-size: 1.1rem;
+  }
+
+  .finalcancel,
+  .finalclear {
+    font-size: 1.1rem;
+    padding: 10px;
+  }
+}
+
+@media (min-width: 770px) and (max-width: 870px) {
+  .app-logo {
+    height: 38px;
+  }
+
+  .app-image {
+    height: 38px;
+  }
+
+  .app-name {
+    font-size: 2.3rem;
+  }
+
+  .btn-list {
+    gap: 2px;
+    padding: 6px;
+  }
+
+  .btn {
+    font-size: 12px;
+    padding: 10px 13px;
+  }
+
+  .setting-image {
+    height: 32px;
+  }
+
+  .task-input {
+    padding-left: 25px;
+
+    font-size: 1.2rem;
+  }
+
+  .add-btn {
+    padding: 0 20px;
+
+    font-size: 1.2em;
+  }
+
+  .editinput {
+    font-size: 1.1em;
+    height: 37px;
+  }
+
+  .cancel,
+  .save {
+    width: 23%;
+    font-size: 1.2rem;
+    letter-spacing: 1;
+
+    padding: 7px 0px;
+  }
+
+  .status {
+    font-size: 16px;
+    margin-left: 7px;
+
+    gap: 10px;
+  }
+
+  .clear {
+    padding: 3px 5px;
+  }
+
+  .finaldeletecon {
+    scale: 0.8;
   }
 }
