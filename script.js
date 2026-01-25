@@ -1,6 +1,11 @@
+let appCon = document.querySelector("#AppCon");
+let App = document.querySelector("#App");
+
 let allFilterBtn = document.querySelector("#all-filter");
 let pendingFilterBtn = document.querySelector("#pending-filter");
 let completedFilterBtn = document.querySelector("#completed-filter");
+
+let settingIcon = document.querySelector("#settingIcon");
 
 let taskInput = document.querySelector(".task-input");
 let addBtn = document.querySelector(".add-btn");
@@ -36,6 +41,162 @@ filterBtns.forEach((btn) => {
     });
     btn.classList.add("active");
   });
+});
+
+// function for delete all recoreds setting
+let finalDeleteFun = () => {
+  let finalDeleteCon = document.createElement("div");
+  finalDeleteCon.className = "finaldeletecon";
+
+  let headerCon = document.createElement("div");
+  headerCon.className = "headercon";
+
+  let finalDeleteImg = document.createElement("img");
+  finalDeleteImg.src = "assets/trash-2.png";
+  finalDeleteImg.className = "finaldelete";
+
+  let finalTitle = document.createElement("p");
+  finalTitle.textContent = "Clear All Tasks?";
+  finalTitle.className = "finalmsg";
+
+  headerCon.append(finalDeleteImg, finalTitle);
+
+  let deleteQuestionBtn = document.createElement("div");
+  deleteQuestionBtn.className = "delete-question-btn";
+
+  let finalQuestion = document.createElement("p");
+  finalQuestion.textContent = "Are you sure you want to clear all tasks?";
+
+  let finalBtnCon = document.createElement("div");
+  finalBtnCon.className = "finalbtncon";
+
+  let finalCancel = document.createElement("button");
+  finalCancel.textContent = "Cancel";
+  finalCancel.className = "finalcancel";
+
+  let finalClear = document.createElement("button");
+  finalClear.textContent = "Clear All";
+  finalClear.className = "finalclear";
+
+  finalBtnCon.append(finalCancel, finalClear);
+
+  deleteQuestionBtn.append(finalQuestion, finalBtnCon);
+
+  finalDeleteCon.append(headerCon, deleteQuestionBtn);
+
+  appCon.append(finalDeleteCon);
+
+  let closeDelete = () => {
+    finalDeleteCon.remove();
+    headerCon.remove();
+    finalDeleteImg.remove();
+    finalTitle.remove();
+    deleteQuestionBtn.remove();
+    finalQuestion.remove();
+    finalBtnCon.remove();
+    finalCancel.remove();
+    finalClear.remove();
+  };
+
+  // event when clicked on cancel button in delete all panel
+  finalCancel.addEventListener("click", () => {
+    closeDelete();
+
+    settingFun();
+  });
+
+  // to delete all records
+  finalClear.addEventListener("click", () => {
+    localStorage.clear();
+    localStorage.setItem("key", "1");
+    key = 1;
+    tasksCon.innerHTML = "";
+
+    setTimeout(() => {
+      closeDelete();
+    }, 250);
+
+    summary();
+    App.classList.remove("appOnSetting");
+  });
+};
+
+// funtion when clicked on settings
+let settingFun = () => {
+  let settingPopUp = document.createElement("div");
+  settingPopUp.classList.add("setting-pop-up");
+
+  let labelCon = document.createElement("div");
+  labelCon.classList.add("labelcon");
+
+  let label = document.createElement("p");
+  label.classList.add("settinglabel");
+  label.textContent = "App options";
+
+  labelCon.append(label);
+
+  let btnCon = document.createElement("div");
+  btnCon.className = "btncon";
+
+  let settingBtn = document.createElement("button");
+  settingBtn.className = "setting-btn";
+
+  let settingImg = document.createElement("ing");
+  settingImg.src = "assets/trash-2.png";
+  settingImg.className = "deleteimg";
+
+  let deleteMsg = document.createElement("p");
+  deleteMsg.className = "deletemsg";
+  deleteMsg.textContent = "Clear all tasks";
+
+  settingBtn.append(settingImg, deleteMsg);
+
+  btnCon.append(settingBtn);
+
+  let close = document.createElement("button");
+  close.className = "close";
+
+  let closeImg = document.createElement("img");
+  closeImg.src = "assets/x.png";
+
+  close.append(closeImg);
+
+  settingPopUp.append(labelCon, btnCon, close);
+
+  appCon.append(settingPopUp);
+
+  let hideAppSetting = () => {
+    settingPopUp.remove();
+    labelCon.remove();
+    label.remove();
+    btnCon.remove();
+    settingBtn.remove();
+    settingImg.remove();
+    deleteMsg.remove();
+    close.remove();
+    closeImg.remove();
+  };
+
+  // close event
+  close.addEventListener("click", () => {
+    App.classList.remove("appOnSetting");
+
+    hideAppSetting();
+  });
+
+  // event for delete button of menu
+  btnCon.addEventListener("click", () => {
+    hideAppSetting();
+
+    finalDeleteFun();
+  });
+};
+
+// event for setting icon / settings menu
+settingIcon.addEventListener("click", () => {
+  App.classList.add("appOnSetting");
+
+  settingFun();
 });
 
 // the function for displaying summery

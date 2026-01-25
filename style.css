@@ -136,6 +136,7 @@ header {
 .setting-image {
   height: 32px;
   opacity: 0.5;
+  cursor: pointer;
 }
 
 .input-con {
@@ -419,4 +420,183 @@ header {
 .delete-img-edit {
   opacity: 0.5;
   filter: blur(2px);
+}
+
+/* style for the app option popup */
+
+.appOnSetting {
+  opacity: 0.7;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.setting-pop-up {
+  width: 35%;
+  height: 15%;
+
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.321);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.169);
+  border-radius: 1em;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.674);
+}
+
+.labelcon {
+  height: 50%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.settinglabel {
+  font-size: 1.5em;
+  letter-spacing: 2px;
+  font-weight: 530;
+}
+
+.btncon {
+  min-height: 50%;
+  display: flex;
+}
+
+.setting-btn {
+  padding: 7px 15px;
+  margin: auto 0;
+  font-size: 1.3em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  background: linear-gradient(rgba(166, 62, 92), rgb(93, 33, 52));
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.393);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.deleteimg {
+  height: 26px;
+  background: transparent;
+}
+
+.deletemsg {
+  color: white;
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+
+  background-color: rgba(255, 255, 255, 0.154);
+
+  height: 27px;
+  width: 27px;
+
+  border: none;
+  border-radius: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+/* style for the delete / clear pop-up */
+
+.finaldeletecon {
+  height: 25%;
+  width: 50%;
+
+  padding: 2.5%;
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.433);
+
+  border: 1px solid rgba(255, 255, 255, 0.169);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.674);
+  border-radius: 25px;
+}
+
+.headercon {
+  height: 40%;
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.493);
+}
+
+.finaldelete {
+  height: 45px;
+  background-color: rgba(234, 20, 20, 0.292);
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.finalmsg {
+  font-size: 2rem;
+  word-spacing: 2px;
+}
+
+.delete-question-btn {
+  height: 60%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-content: center;
+  gap: 60px;
+}
+
+.finalquestion {
+  font-size: 1.3em;
+  color: rgba(255, 255, 255, 0.548);
+}
+
+.finalbtncon {
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.finalcancel,
+.finalclear {
+  height: 50px;
+  width: 30%;
+  font-size: 1.3em;
+  padding: 10px 20px;
+  border-radius: 7px;
+  border: none;
+}
+
+.finalcancel {
+  background: linear-gradient(rgba(235, 233, 248), rgba(205, 205, 246));
+}
+
+.finalclear {
+  color: white;
+  background: linear-gradient(rgba(201, 71, 112), rgba(154, 54, 96));
 }
