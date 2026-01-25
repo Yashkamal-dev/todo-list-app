@@ -34,19 +34,19 @@ The app is designed to help users manage daily tasks efficiently with a focus on
 
 ### Main Application Interface
 
-## <img src="readmePic/main-ui.png" alt="" width="390">
+## <img src="screenshots/main-ui.png" alt="" width="390">
 
 ---
 
 ### Adding a New Task
 
-<img src="readmePic/add-task.png" alt="" width="390">
+<img src="screenshots/add-task.png" alt="" width="390">
 
 ---
 
 ### Editing an Existing Task
 
-<img src="readmePic/edit-task.png" alt="" width="390">
+<img src="screenshots/edit-task.png" alt="" width="390">
 
 ---
 
@@ -54,11 +54,11 @@ The app is designed to help users manage daily tasks efficiently with a focus on
 
 #### Pending Tasks View
 
-<img src="readmePic/filter-tasks-pending.png" alt="" width="390">
+<img src="screenshots/filter-tasks-pending.png" alt="" width="390">
 
 #### Completed Tasks View
 
-<img src="readmePic/filter-tasks-completed.png" alt="" width="390">
+<img src="screenshots/filter-tasks-completed.png" alt="" width="390">
 
 ---
 
