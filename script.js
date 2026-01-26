@@ -21,7 +21,8 @@ let total;
 let pending;
 
 let inEdit = false,
-  inSettings = false;
+  inSettings = false,
+  inFirstSetting = false;
 
 let key;
 
@@ -48,6 +49,8 @@ filterBtns.forEach((btn) => {
 
 // function for delete all recoreds setting
 let finalDeleteFun = () => {
+  inFirstSetting = false;
+
   let finalDeleteCon = document.createElement("div");
   finalDeleteCon.className = "finaldeletecon";
 
@@ -102,17 +105,26 @@ let finalDeleteFun = () => {
     finalClear.remove();
   };
 
-  // event when clicked on cancel button in delete all panel
-  finalCancel.addEventListener("click", () => {
+  // function for final cancel event
+  let finalCancelEvent = () => {
     inSettings = false;
 
     closeDelete();
 
     settingFun();
-  });
+  };
 
-  // to delete all records
-  finalClear.addEventListener("click", () => {
+  let finalCancelEsc = (e) => {
+    if (e.key == "Escape" && inSettings == true) {
+      finalCancelEvent();
+
+      document.removeEventListener("keydown", finalCancelEsc);
+      document.removeEventListener("keyup", finalSaveEsc);
+    }
+  };
+
+  // function for final cancel event
+  let finalSaveEvent = () => {
     inSettings = false;
 
     localStorage.clear();
@@ -126,12 +138,34 @@ let finalDeleteFun = () => {
 
     summary();
     App.classList.remove("appOnSetting");
-  });
+  };
+
+  let finalSaveEsc = (e) => {
+    if (e.key == "Enter" && inSettings == true) {
+      finalSaveEvent();
+
+      document.removeEventListener("keydown", finalCancelEsc);
+      document.removeEventListener("keyup", finalSaveEsc);
+    }
+  };
+
+  // assigning esc function to canccl event
+  document.addEventListener("keydown", finalCancelEsc);
+
+  // event when clicked on cancel button in delete all panel
+  finalCancel.addEventListener("click", finalCancelEvent);
+
+  // assigning esc function to clear event
+  document.addEventListener("keyup", finalSaveEsc);
+
+  // to delete all records
+  finalClear.addEventListener("click", finalSaveEvent);
 };
 
 // funtion when clicked on settings
 let settingFun = () => {
   inSettings = true;
+  inFirstSetting = true;
 
   let settingPopUp = document.createElement("div");
   settingPopUp.classList.add("setting-pop-up");
@@ -187,14 +221,29 @@ let settingFun = () => {
     closeImg.remove();
   };
 
-  // close event
-  close.addEventListener("click", () => {
+  // event funtion for close
+  let closeEvent = () => {
     inSettings = false;
 
     App.classList.remove("appOnSetting");
 
     hideAppSetting();
-  });
+  };
+
+  // event function for esc close
+  let closeEventEsc = (e) => {
+    if (e.key == "Escape" && inFirstSetting == true) {
+      closeEvent();
+
+      document.removeEventListener("keydown", closeEventEsc);
+    }
+  };
+
+  // close event assigning
+  close.addEventListener("click", closeEvent);
+
+  // esc event
+  document.addEventListener("keydown", closeEventEsc);
 
   // event for delete button of menu
   btnCon.addEventListener("click", () => {
