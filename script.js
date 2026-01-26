@@ -20,6 +20,9 @@ let clearBtn = document.querySelector(".clear");
 let total;
 let pending;
 
+let inEdit = false,
+  inSettings = false;
+
 let key;
 
 if (localStorage.length < 1) {
@@ -65,7 +68,7 @@ let finalDeleteFun = () => {
   deleteQuestionBtn.className = "delete-question-btn";
 
   let finalQuestion = document.createElement("p");
-  finalQuestion.classList.add("finalquestion")
+  finalQuestion.classList.add("finalquestion");
   finalQuestion.textContent = "Are you sure you want to clear all tasks?";
 
   let finalBtnCon = document.createElement("div");
@@ -101,6 +104,8 @@ let finalDeleteFun = () => {
 
   // event when clicked on cancel button in delete all panel
   finalCancel.addEventListener("click", () => {
+    inSettings = false;
+
     closeDelete();
 
     settingFun();
@@ -108,6 +113,8 @@ let finalDeleteFun = () => {
 
   // to delete all records
   finalClear.addEventListener("click", () => {
+    inSettings = false;
+
     localStorage.clear();
     localStorage.setItem("key", "1");
     key = 1;
@@ -124,6 +131,8 @@ let finalDeleteFun = () => {
 
 // funtion when clicked on settings
 let settingFun = () => {
+  inSettings = true;
+
   let settingPopUp = document.createElement("div");
   settingPopUp.classList.add("setting-pop-up");
 
@@ -180,6 +189,8 @@ let settingFun = () => {
 
   // close event
   close.addEventListener("click", () => {
+    inSettings = false;
+
     App.classList.remove("appOnSetting");
 
     hideAppSetting();
@@ -338,6 +349,8 @@ function show(funkey, task) {
   // edit event function
   let editEvent = () => {
     if (edt.classList.contains("pencil-img")) {
+      inEdit = true;
+
       edt.removeEventListener("click", editEvent);
       dlt.removeEventListener("click", deleteEvent);
 
@@ -382,7 +395,11 @@ function show(funkey, task) {
 
       checkTask.append(editBox);
 
-      cancelBtn.addEventListener("click", () => {
+      editInput.focus();
+
+      let cancelEvent = () => {
+        inEdit = false;
+
         edt.addEventListener("click", editEvent);
         dlt.addEventListener("click", deleteEvent);
 
@@ -408,9 +425,22 @@ function show(funkey, task) {
         cancelSaveCon.remove();
         cancelBtn.remove();
         saveBtn.remove();
-      });
 
-      saveBtn.addEventListener("click", () => {
+        taskInput.focus();
+      };
+
+      // function for esc cancel
+      let cancelEventEsc = (e) => {
+        if (e.key == "Escape" && inEdit == true) {
+          cancelEvent();
+          document.removeEventListener("keydown", cancelEventEsc);
+          document.removeEventListener("keyup", saveEventEsc);
+        }
+      };
+
+      let saveEvent = () => {
+        inEdit = false;
+
         edt.addEventListener("click", editEvent);
         dlt.addEventListener("click", deleteEvent);
 
@@ -441,7 +471,31 @@ function show(funkey, task) {
         cancelSaveCon.remove();
         cancelBtn.remove();
         saveBtn.remove();
-      });
+
+        taskInput.focus();
+      };
+
+      // function for esc save
+      let saveEventEsc = (e) => {
+        if (e.key == "Enter" && inEdit == true) {
+          saveEvent();
+
+          document.removeEventListener("keydown", cancelEventEsc);
+          document.removeEventListener("keyup", saveEventEsc);
+        }
+      };
+
+      // assigning esc function to canccl event
+      document.addEventListener("keydown", cancelEventEsc);
+
+      // assigning function to canccl event
+      cancelBtn.addEventListener("click", cancelEvent);
+
+      // assigning esc function to save event
+      document.addEventListener("keyup", saveEventEsc);
+
+      // assigning function to save event
+      saveBtn.addEventListener("click", saveEvent);
     }
   };
 
@@ -504,7 +558,10 @@ completedFilterBtn.addEventListener("click", () => {
   }
 });
 
-addBtn.addEventListener("click", () => {
+taskInput.focus();
+
+// funtion to add task
+let addTask = () => {
   let task = taskInput.value;
   taskInput.value = "";
 
@@ -515,9 +572,26 @@ addBtn.addEventListener("click", () => {
 
     key++;
     localStorage.setItem("key", key);
+
+    taskInput.focus();
+  }
+};
+
+// event to be fired upon clicking the add task button
+addBtn.addEventListener("click", () => {
+  addTask();
+});
+
+document.addEventListener("keydown", (e) => {
+  // console.log(e.key)
+  if (e.key == "Enter") {
+    if (inEdit == false && inSettings == false) {
+      addTask();
+    }
   }
 });
 
+// event to be fired upon clicking the add clear button
 clearBtn.addEventListener("click", () => {
   for (let i = 1; i <= key; i++) {
     let checkstatus = localStorage.getItem(`${i} status`);
