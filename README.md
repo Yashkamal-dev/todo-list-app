@@ -13,6 +13,7 @@ The app is designed to help users manage daily tasks efficiently with a focus on
 - ✅ Mark tasks as completed
 - 🔍 Filter tasks (All / Pending / Completed)
 - 🧹 Clear completed tasks with confirmation
+- ⌨️ Keyboard support for task actions (Enter to add/save, Escape to cancel / close dialogs)
 - 💾 Persistent task storage
   - Tasks remain saved even after page refresh
   - Each task’s state (completed or pending) is preserved
