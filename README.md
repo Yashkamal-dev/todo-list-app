@@ -21,33 +21,23 @@ The app is designed to help users manage daily tasks efficiently with a focus on
 
 ---
 
-## 🛠️ Tech Stack
-
-- **HTML5** – application structure
-- **CSS3** – layout, gradients, and responsive styling
-- **JavaScript (Vanilla)** – application logic and DOM manipulation
-
-> This project is built without frameworks or external libraries to strengthen core web development fundamentals.
-
----
-
-## 📸 Screenshots
+## 📸 Preview
 
 ### Main Application Interface
 
-## <img src="screenshots/main-ui.png" alt="" width="390">
+## <img src="screenshots/main-ui.png" alt="">
 
 ---
 
 ### Adding a New Task
 
-<img src="screenshots/add-task.png" alt="" width="390">
+<img src="screenshots/add-task.png" alt="">
 
 ---
 
 ### Editing an Existing Task
 
-<img src="screenshots/edit-task.png" alt="" width="390">
+<img src="screenshots/edit-task.png" alt="">
 
 ---
 
@@ -55,17 +45,27 @@ The app is designed to help users manage daily tasks efficiently with a focus on
 
 #### Pending Tasks View
 
-<img src="screenshots/filter-tasks-pending.png" alt="" width="390">
+<img src="screenshots/filter-tasks-pending.png" alt="">
 
 #### Completed Tasks View
 
-<img src="screenshots/filter-tasks-completed.png" alt="" width="390">
+<img src="screenshots/filter-tasks-completed.png" alt="">
 
 ---
 
 ### Clear Completed Tasks Confirmation
 
-<img src="screenshots/clear-completed.png" alt="" width="390">
+<img src="screenshots/clear-completed.png" alt="">
+
+---
+
+## 🛠️ Tech Stack
+
+- **HTML5** – application structure
+- **CSS3** – layout, gradients, and responsive styling
+- **JavaScript (Vanilla)** – application logic and DOM manipulation
+
+> This project is built without frameworks or external libraries to strengthen core web development fundamentals.
 
 ---
 
